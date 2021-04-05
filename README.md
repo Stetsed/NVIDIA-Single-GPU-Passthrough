@@ -52,4 +52,5 @@ For help or anything else regarding this project please make a "Issue" and if yo
 
 # Credits
 Alena: Made the original script which I have modified
+
 Archwiki: Alot of this info comes from there article on PCI passthrough via OVMF
