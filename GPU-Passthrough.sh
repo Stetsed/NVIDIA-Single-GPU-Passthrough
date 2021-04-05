@@ -122,6 +122,7 @@ start_kvm_and_block()
     qemu-system-x86_64 $OPTS
 }
 kill_desktop
+sleep 4
 disown_host
 manage_cpu_governor "performance"
 start_kvm_and_block
