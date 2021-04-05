@@ -54,3 +54,5 @@ For help or anything else regarding this project please make a "Issue" and if yo
 Alena: Made the original script which I have modified
 
 Archwiki: Alot of this info comes from there article on PCI passthrough via OVMF
+
+joeknock90: For his single GPU passthrough guide. Which this guide also uses parts from. But then uses shell script instead of libvirt.
