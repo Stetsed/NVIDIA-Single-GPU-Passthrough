@@ -32,7 +32,7 @@ Now we will have to "Patch" our vBIOS of our graphics card to patch thru. You ca
 
 # Step 4
 Now we have to edit the shell script to work for us. You will find most of the editing noted inside the shell script.
-1. Edit the IOMMU groups to your ones, there are 4 enteries, if you have less remove the ones you do not need.
+1. Edit the IOMMU groups to your ones, there are 4 enteries, if you have less remove the ones you do not need, including the ones later in the script.
 2. Edit the OVMF location, to find this just go to virt-manager and you should be able to find it there.
 3. Edit the VBIOS location, which you edited it the previos step. Mine is called before.rom but yours will be something like patched.rom(or whatever you saved it as)
 4. Edit systemctl stop sddm, to systemctl stop (Your desktop manager) which in the case of Manjaro XFCE is LightDM, Manjaro KDE uses SDDM. Do the same with the systemctl at the end of the script.
