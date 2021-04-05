@@ -2,7 +2,7 @@
 Hello everybody :D, So recently I have seen alot of people have been having issues with single-gpu passthrough. And I decided to release this guide for not libvirt GPU passthrough. But QEMU shell script. The reason I have gone for this is because I have had less issues to get this to work with shell-script, mostly the audio. This guide will only work for people using nouveau on manjaro with nvidia , as that is what this is based off. 
 
 There are some things I am gonna assume:
-1. You have installed manjaro(Xfce), with the nouveau drivers. So the open-source drivers. The reason for this is the nvidia drivers are a mess.
+1. You have installed manjaro(Xfce), others will work but might need some adjustment interms of desktop manager etc, with the nouveau drivers. So the open-source drivers. The reason for this is the nvidia drivers are a mess.
 2. You are running intel, and a Nvidia GPU
 3. You have sudo
 4. You have made a virtual machine via Virt-manager to install the OS, having chosen Q35 and OVMF.
