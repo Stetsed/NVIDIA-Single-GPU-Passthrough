@@ -26,7 +26,7 @@ Assuming that this step went fine, you are next gonna find the IOMMU for ALL you
 Now we will have to "Patch" our vBIOS of our graphics card to patch thru. You can download it from sites such as techpowerd, but I would recommend just dumping it from your card directly as it is more reliable, however this can cause damage. 
 1. Get a copy of your bios, either from your card with something such as Nvflash, or download it from a site such as techpowerd.
 2. Open it is bless hex editor, if you haven't yet installed this, "sudo Pacman -S bless"
-3. Now do Ctrl+F and search for "VIDEO" as tekst.
+3. Now do Ctrl+F and search for "VIDEO" as text.
 4. Now find the first U before VIDEO, and delete EVERYTHING before it. 
 5. Now save it as a seperate file(So you have a backup).
 
