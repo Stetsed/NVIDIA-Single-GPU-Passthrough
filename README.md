@@ -1,3 +1,7 @@
+### THIS IS NO LONGER MAINTAINED.
+
+
+
 # NVIDIA-Single-GPU-Passthrough
 Hello everybody :D, So recently I have seen alot of people have been having issues with single-gpu passthrough. And I decided to release this guide for not libvirt GPU passthrough. But QEMU shell script. The reason I have gone for this is because I have had less issues to get this to work with shell-script, mostly the audio. This guide will only work for people using nouveau on manjaro with nvidia, as that is what this is based off. 
 
