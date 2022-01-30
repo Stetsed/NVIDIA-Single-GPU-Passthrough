@@ -1,20 +1,23 @@
 # NVIDIA-Single-GPU-Passthrough
-Hello everybody, this is Stetsed again. I decided to hop back into this community and update this with everything I have learned which... is alot and I have been able to refine the setup quite alot. So I will be showing the new way which let's you use libvirt(Which lets you use virtual-machine-manager GUI) and as such is much easier to manage.
+Hello everybody, me again. I have recently been fiddling around alot more with virtual machines because I was bored so I decided to remake this guide again because I see that it doesn't cover everything and as I recently decided to improve my setup to be more efficient I decided to update this guide aswell. Please note that this guide might not be 100% accurate so please only use this if you do have some experience, but you don't need to be an expert. And also an improved version of the start.sh script as I have made changes to it.
 
 With this guide I am assuming:
 1. You have root acces.
 2. You have setup a virtual machine with the virt-manager choosing Q35 and OVMF.
 
 # Step 1
-Ok let's begin. To begin with we are gonna enable IOMMU which depending on your boot-loader may the diffrent.
-Grub:
+Firstly we have to enable IOMMU on the machine, I have used GRUB and Systemd-boot so I will show methods for those but if you use the internet you should be able to find relativley quickly what to do.
+
+GRUB:
+
 1. Sudo nano /etc/default/grub
 2. Go to "Grub_cmdline_linux_default", and then somewhere here, enable IOMMU by typing intel_iommu=on, or if your on AMD do amd_iommu=on.
 3. Now regenerate the grub.cfg file with, grub-mkconfig -o /boot/grub/grub.cfg
+
 Systemd-boot
 1. sudo nano /boot/loader/entries/(entry for your loader)
-2. find "Options"
-3. Add intel_iommu=on or amd_iommu=on at the end of this line.
+2. Find the line which says "Options"
+3. Add either intel_iommu=on if you are on an intel CPU or amd_iommu=on if you are on a AMD CPU.
 
 # Step 2
 1. After doing this run the shell script in this repo called "IOMMU.sh"
@@ -22,9 +25,9 @@ Systemd-boot
 3. If they are not then your IOMMU groups are screwed and you will have to do ACS patching and the likes which I will not cover.
 
 # Step 3
-Now we will have to "Patch" our vBIOS of our graphics card to patch thru. You can download it from sites such as techpowerd, but I would recommend just dumping it from your card directly as it is more reliable, however this can cause damage. 
+Now we will have to "Patch" our vBIOS of our graphics card to patch thru. You can download it from sites such as techpowerd, but I would recommend just dumping it from your card directly as it is more reliable.
 1. Get a copy of your bios, either from your card with something such as Nvflash, or download it from a site such as techpowerup.
-2. Open it is bless hex editor, if you haven't yet installed this, "sudo Pacman -S bless"
+2. Open it is bless hex editor, if you haven't yet installed this, "sudo Pacman -S bless" on Arch based distros.
 3. Now do Ctrl+F and search for "VIDEO" as text.
 4. Now find the first U before VIDEO, and delete EVERYTHING before it. 
 5. Now save it as a seperate file(So you have a backup).
@@ -47,7 +50,7 @@ The last step is to add the devices from nvidia to our VM.
 
 Compared to my previous guide this was ALOT easier as I found that driver unloading is not required(Suprise), and overall after doing a bunch of messing around I was able to get this script to a state where it worked evertime and I have been using it since.
 
-Now to run it all you do is SSH into your PC via another device, and then run "Sudo ./Start.sh", and then "virsh -c qemu:///system" and then do "start (name of VM)" and your done the VM will now startup
+Now to run it all you do is SSH into your PC via another device, and then run "Sudo ./Start.sh", and then "virsh -c qemu:///system" and then do "start (name of VM)" and your done the VM will now startup. You can also setup Libvirt Hooks which make it so the script will run when the machine is started not requiring an SSH session.
 
 
 # Credits
