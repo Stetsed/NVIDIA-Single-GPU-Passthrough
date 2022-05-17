@@ -1,3 +1,5 @@
+# This guide is now archived and will no longer recieve updates unless I decide to update it, but due to the dynamic situtation of GPU passthrough and me switching to have 2 dGPU's I will no longer be updating this.
+
 # NVIDIA-Single-GPU-Passthrough
 Hello everybody, me again. I have recently been fiddling around alot more with virtual machines because I was bored so I decided to remake this guide again because I see that it doesn't cover everything and as I recently decided to improve my setup to be more efficient I decided to update this guide aswell. Please note that this guide might not be 100% accurate so please only use this if you do have some experience, but you don't need to be an expert. And also an improved version of the start.sh script as I have made changes to it.
 
